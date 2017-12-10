@@ -18,3 +18,5 @@ class NewsItem(scrapy.Item):
     title = scrapy.Field()
     body = scrapy.Field()
     time = scrapy.Field()
+    image_urls = scrapy.Field()
+    images = scrapy.Field()

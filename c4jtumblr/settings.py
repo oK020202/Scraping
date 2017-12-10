@@ -62,11 +62,6 @@ DOWNLOAD_DELAY = 3
 #    'scrapy.extensions.telnet.TelnetConsole': None,
 #}
 
-# Configure item pipelines
-# See http://scrapy.readthedocs.org/en/latest/topics/item-pipeline.html
-#ITEM_PIPELINES = {
-#    'c4jtumblr.pipelines.C4JtumblrPipeline': 300,
-#}
 
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See http://doc.scrapy.org/en/latest/topics/autothrottle.html
@@ -90,7 +85,12 @@ DOWNLOAD_DELAY = 3
 #HTTPCACHE_STORAGE = 'scrapy.extensions.httpcache.FilesystemCacheStorage'
 FEED_EXPORT_ENCODING='utf-8'
 #FEED_FORMAT='jsonlines'
-ITEM_PIPELINES = {'scrapy.pipelines.images.ImagesPipeline': 1}
+# Configure item pipelines
+# See http://scrapy.readthedocs.org/en/latest/topics/item-pipeline.html
+ITEM_PIPELINES = {
+    'scrapy.pipelines.images.ImagesPipeline': 1,
+    'c4jtumblr.pipelines.C4JtumblrPipeline': 300,
+}
 IMAGES_STORE = './out/images'
 FEED_URI = './out/export.jl'
 

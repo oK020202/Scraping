@@ -8,4 +8,8 @@
 
 class C4JtumblrPipeline(object):
     def process_item(self, item, spider):
+        # replace image src to downloaded image path
+        for image in item['images']:
+            print('replace ' + image['url'] + ' to /images/' + image['path'])
+            item['body'] = item['body'].replace(image['url'], '/images/' + image['path'])
         return item

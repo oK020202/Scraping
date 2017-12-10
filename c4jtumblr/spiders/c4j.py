@@ -30,7 +30,6 @@ class C4jSpider(CrawlSpider):
 
     def parse_news(self, response):
         item = NewsItem()
-
         sel = Selector(response)
         article = response.css("article")
         item['article_id'] = article.css("::attr(id)").extract_first()
@@ -39,5 +38,6 @@ class C4jSpider(CrawlSpider):
         if item['title'] == None:
             item['title'] = article.css('div.captions p ::text').extract_first()
         item['body'] = article.extract_first()
+        item['image_urls'] = article.css('img::attr("src")').extract()
         
         yield item
