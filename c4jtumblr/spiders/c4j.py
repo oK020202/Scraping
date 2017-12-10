@@ -25,8 +25,8 @@ class C4jSpider(CrawlSpider):
             
         next_page = response.css('#pagination a#older::attr("href")').extract_first()
         
-        #if next_page is not None:
-        #    yield response.follow(next_page, self.parse)
+        if next_page is not None:
+            yield response.follow(next_page, self.parse)
 
     def parse_news(self, response):
         item = NewsItem()
