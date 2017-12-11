@@ -11,5 +11,5 @@ class C4JtumblrPipeline(object):
         # replace image src to downloaded image path
         for image in item['images']:
             print('replace ' + image['url'] + ' to /images/' + image['path'])
-            item['body'] = item['body'].replace(image['url'], '/images/' + image['path'])
-        return item
+            item['post_content'] = item['post_content'].replace(image['url'], '/images/' + image['path'])
+        return item 

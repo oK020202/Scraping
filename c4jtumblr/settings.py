@@ -84,7 +84,8 @@ DOWNLOAD_DELAY = 3
 #HTTPCACHE_IGNORE_HTTP_CODES = []
 #HTTPCACHE_STORAGE = 'scrapy.extensions.httpcache.FilesystemCacheStorage'
 FEED_EXPORT_ENCODING='utf-8'
-#FEED_FORMAT='jsonlines'
+FEED_FORMAT='csv'
+FEED_EXPORT_FIELDS = ["post_id","post_name","post_author","post_date","post_type","post_status","post_title","post_content","post_category","post_tags","custom_field"]
 # Configure item pipelines
 # See http://scrapy.readthedocs.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
@@ -92,5 +93,5 @@ ITEM_PIPELINES = {
     'c4jtumblr.pipelines.C4JtumblrPipeline': 300,
 }
 IMAGES_STORE = './out/images'
-FEED_URI = './out/export.jl'
+FEED_URI = './out/export.csv'
 

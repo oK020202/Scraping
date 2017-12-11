@@ -33,11 +33,21 @@ class C4jSpider(CrawlSpider):
         sel = Selector(response)
         article = response.css("article")
         item['article_id'] = article.css("::attr(id)").extract_first()
-        item['time'] = article.css("::attr(date)").extract_first()
-        item['title'] = article.css("div.text h2::text").extract_first()
-        if item['title'] == None:
-            item['title'] = article.css('div.captions p ::text').extract_first()
-        item['body'] = article.extract_first()
+        item['post_id'] = ""
+        item['post_date'] = article.css("::attr(date)").extract_first()
+        item['post_name'] = response.url.split("/")[-1]
+        item['post_title'] = article.css("div.text h2::text").extract_first()
+        item['post_author'] = 'hal'
+        item['post_type'] = 'story'
+        item['post_status'] = 'draft'
+        item['post_category'] = ""
+        item['post_tags'] = " ".join(article.css("a.tag::text").extract())
+        if item['post_title'] == None:
+            item['post_title'] = article.css('div.captions p ::text').extract_first()
+        item['post_content'] = article.css('div.text').extract_first()
+        if (item['post_content']) == None:
+            item['post_content'] = article.css('.photo').extract_first() + article.css('div.text-post div.captions').extract_first()
+            
         item['image_urls'] = article.css('img::attr("src")').extract()
         
         yield item
