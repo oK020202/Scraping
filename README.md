@@ -39,5 +39,5 @@ export.csv  images
 ```
 
 ## LICENSE
-You can use this repository under the MIT license.
+This software is released under the MIT License, see LICENSE.txt.
 
