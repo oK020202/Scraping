@@ -2,6 +2,8 @@ Code for Japan の旧Website (http://archive.code4japan.org/) 内の記事を読
 ウェブサイトのトップページから各記事のページを開き、その記事の必要な部分のみを読み込み、日付やタイトルの入った、全記事のCSVファイルを生成します。
 また、記事からリンクされているイメージ画像も自動的にダウンロードし、本文のimgタグのsrc部分も新しい画像の名前で書き換えます。
 
+| ⚠️ This repository will be archived in the future, this config will no longer be maintained. Thanks for all the stars, help and brainstorms! |
+
 ## 出力ファイルの構成
 
 out/export.csv --- 全記事のCSVファイルです。WordPress のCSVインポート機能の項目になっています。
